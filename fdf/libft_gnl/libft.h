@@ -2,6 +2,7 @@
 
 # define LIBFT_H
 
+# include "get_next_line.h"
 # include <inttypes.h>
 # include <limits.h>
 # include <string.h>
@@ -74,4 +75,6 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 
 // My functions
 int					ft_pow_recursive(int basis, int exponent);
+size_t				ft_cstrlen(const char *str, char c);
+int					is_newline(char *str);
 #endif

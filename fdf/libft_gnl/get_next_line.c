@@ -1,4 +1,4 @@
-#include "get_next_line.h"
+#include "libft.h"
 
 static void	ft_clean(char ***obj)
 {
@@ -11,7 +11,7 @@ static int	ft_write_in_line(char **remainder, char **line)
 	int		length;
 	char	*tmp;
 
-	length = ft_strlen(*remainder, '\n');
+	length = ft_cstrlen(*remainder, '\n');
 	if ((*remainder)[length] == '\n')
 	{
 		*line = ft_substr(*remainder, 0, length);
@@ -32,7 +32,7 @@ static int	ft_write_in_line(char **remainder, char **line)
 
 static int	ft_return(char **line, char **remainder, int read_bytes)
 {
-	if ((*remainder) && ft_strlen(*remainder, 0) && read_bytes >= 0)
+	if ((*remainder) && ft_cstrlen(*remainder, 0) && read_bytes >= 0)
 		return (ft_write_in_line(remainder, line));
 	ft_clean(&remainder);
 	if (read_bytes < 0)
