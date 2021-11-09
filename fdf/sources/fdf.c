@@ -1,22 +1,14 @@
 #include "fdf.h"
 #include <stdio.h>
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	char	*line;
-	int		fd;
+	void	*mlx;
+	void	*mlx_window;
 
-	while (argc > 0)
-	{
-		fd = open(argv[argc], O_RDONLY);
-		while (get_next_line(fd, &line) > 0)
-		{
-			printf("%s\n", line);
-			free(line);
-			line = NULL;
-		}
-		free(line);
-		argc--;
-	}
+	mlx = mlx_init();
+	mlx_window = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+	mlx_loop(mlx);
+
 	return (0);
 }
