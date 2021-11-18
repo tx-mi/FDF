@@ -33,7 +33,7 @@ static void	get_height(t_fdf *fdf, char *filename)
 	fdf->width = get_width(line);
 	fdf->height = 1;
 
-	while (get_next_line(fd, line) > 0)
+	while (get_next_line(fd, &line) > 0)
 	{
 		fdf->height++;
 		free(line);
@@ -44,7 +44,18 @@ static void	get_height(t_fdf *fdf, char *filename)
 
 static void	fill_row_matrix(int *row, char *line)
 {
+	char **nums;
+	int i;
 
+	nums = ft_split(line, ' ');
+	i = 0;
+	while (nums[i])
+	{
+		row[i] = ft_atoi(nums[i]);
+		free(nums[i]);
+		i++;	
+	}
+	free(nums);
 }
 
 void	read_file(t_fdf *fdf, char *filename)
@@ -57,7 +68,7 @@ void	read_file(t_fdf *fdf, char *filename)
 	fdf->z_matrix = (int **)malloc(sizeof(int*) * (fdf->height + 1));
 	fd = open(filename, O_RDONLY);
 	i = 0;
-	while (get_next_line(fd, line) > 0)
+	while (get_next_line(fd, &line) > 0)
 	{
 		fdf->z_matrix[i] = (int *)malloc(sizeof(int) * (fdf->width + 1));
 		fill_row_matrix(fdf->z_matrix[i], line);
