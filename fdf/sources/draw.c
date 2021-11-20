@@ -3,14 +3,17 @@
 void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color)
 {
 	int		offset;
+	char	*c;
 
 	if (x >= 0 && x < WINDOW_WIDTH && y >= 0 && y < WINDOW_HEIGHT)
 	{
 		offset = (y * data->line_length + x * (data->bits_per_pixel / 8));
-		data->addr[offset] = color;
-		data->addr[++offset] = color >> 8;
-		data->addr[++offset] = color >> 16;
-		data->addr[++offset] = 0;
+		c = data->addr + offset;
+		*(unsigned int*)c = color;
+		// data->addr[offset] = color;
+		// data->addr[++offset] = color >> 8;
+		// data->addr[++offset] = color >> 16;
+		// data->addr[++offset] = 0;
 	}
 }
 

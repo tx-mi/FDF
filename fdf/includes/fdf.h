@@ -7,33 +7,92 @@
 # include <errno.h>
 # include <stdio.h>
 
+#include "error_message.h"
 
-# define WINDOW_WIDTH 800
-# define WINDOW_HEIGHT 800
+# define HEIGHT			1080
+# define WIDTH			1920
+# define MENU_WIDTH		250
 
 
-typedef struct	s_img_data
+typedef enum
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}			t_img_data;
+	Iso,
+	Parallel
+}	t_projection;
 
-typedef struct	s_fdf
+// typedef struct			s_coord_val
+// {
+// 	int					z;
+// 	int					color;
+// 	struct s_coord_val	*next;
+// }						t_coord_val;
+
+// typedef struct			s_point
+// {
+// 	int					x;
+// 	int					y;
+// 	int					z;
+// 	int					color;
+// }						t_point;
+
+typedef struct			s_camera
 {
-	int		width;
-	int		height;
-	int		**z_matrix;
+	t_projection		projection;
+	int					zoom;
+	// double				alpha;
+	// double				beta;
+	// double				gamma;
+	// float				z_divisor;
+	int					x_offset;
+	int					y_offset;
+}						t_camera;
 
-	void	*mlx;
-	void	*mlx_window;
-}			t_fdf;
+typedef struct			s_map
+{
+	int					width;
+	int					height;
+	// int					*coords_arr;
+	int					**z_matrix;
+	int					*colors_arr;
+	int					z_min;
+	int					z_max;
+	// int					z_range;
+}						t_map;
 
-void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
-void bresenham(int x0, int y0, int x1, int y1, t_img_data *data);
-void read_file(t_fdf *fdf, char *filename);
+// typedef struct			s_mouse
+// {
+// 	char				is_pressed;
+// 	int					x;
+// 	int					y;
+// 	int					previous_x;
+// 	int					previous_y;
+// }						t_mouse;
+
+typedef struct			s_fdf
+{
+	void				*mlx;
+	void				*win;
+	void				*img;
+	char				*data_addr;
+	int					bits_per_pixel;
+	int					size_line;
+	int					endian;
+	t_camera			*camera;
+	t_map				*map;
+	// t_mouse				*mouse;
+}						t_fdf;
+
+void my_mlx_pixel_put();
+
+void bresenham();
+
+void read_file();
+
+// Utils
+double precent(int start, int end, int current);
+
+void terminate(char *s);
 
 int sign(int point0, int point1);
+
 #endif

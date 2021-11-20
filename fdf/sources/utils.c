@@ -1,6 +1,6 @@
 #include "fdf.h"
 
-double  precent(int start, int end, int current)
+double precent(int start, int end, int current)
 {
     double  placement;
     double  distance;
@@ -13,7 +13,7 @@ double  precent(int start, int end, int current)
         return (placement / distance);
 }
 
-void    terminate(char *s)
+void terminate(char *s)
 {
     if (errno == 0)
         ft_putendl_fd(s, 2);
@@ -22,7 +22,7 @@ void    terminate(char *s)
     exit(1);
 }
 
-int	sign(int point0, int point1) 
+int sign(int point0, int point1) 
 {
 	if (point0 < point1)
 		return (1);
