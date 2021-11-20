@@ -36,9 +36,9 @@ int	main(int argc, char **argv)
 		printf("\n");
 		i++;
 	}
-	// draw();
-	// mlx_put_image_to_window(fdf.mlx, fdf.mlx_window, image.img, 0, 0);
-	// mlx_loop(fdf.mlx);
+	bresenham(5, 5, 700, 5, &image);
+	mlx_put_image_to_window(fdf.mlx, fdf.mlx_window, image.img, 0, 0);
+	mlx_loop(fdf.mlx);
 
 	return (0);
 }

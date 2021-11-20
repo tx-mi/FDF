@@ -3,7 +3,10 @@
 
 # include "../libft_gnl/libft.h"
 # include <mlx.h>
+# include <math.h>
+# include <errno.h>
 # include <stdio.h>
+
 
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 800
@@ -29,6 +32,8 @@ typedef struct	s_fdf
 }			t_fdf;
 
 void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
-void	read_file(t_fdf *fdf, char *filename);
+void bresenham(int x0, int y0, int x1, int y1, t_img_data *data);
+void read_file(t_fdf *fdf, char *filename);
 
+int sign(int point0, int point1);
 #endif
