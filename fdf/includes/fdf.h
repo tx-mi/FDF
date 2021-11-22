@@ -20,13 +20,6 @@ typedef enum
 	Parallel
 }	t_perspective;
 
-// typedef struct			s_coord_val
-// {
-// 	int					z;
-// 	int					color;
-// 	struct s_coord_val	*next;
-// }						t_coord_val;
-
 typedef struct			s_point
 {
 	int					x;
@@ -42,7 +35,7 @@ typedef struct			s_camera
 	// double				alpha;
 	// double				beta;
 	// double				gamma;
-	// float				z_divisor;
+	float				z_divisor;
 	int					x_offset;
 	int					y_offset;
 }						t_camera;
@@ -51,11 +44,10 @@ typedef struct			s_map
 {
 	int					width;
 	int					height;
-	// int					*coords_arr;
 	int					**z_matrix;
 	int					*colors_arr;
-	int					z_min;
-	int					z_max;
+	// int					z_min;
+	// int					z_max;
 	// int					z_range;
 }						t_map;
 
@@ -113,5 +105,6 @@ int calc_sign(int point0, int point1);
 
 t_point new_point(t_map *map, int x, int y);
 
+int min(int first, int second);
 
 #endif

@@ -43,3 +43,11 @@ t_point new_point(t_map *map, int x, int y)
         point.color = 0xffffff;
     return (point);
 }
+
+int min(int first, int second)
+{
+    if (first > second)
+        return (second);
+    else
+        return (first);
+}
