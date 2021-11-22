@@ -45,7 +45,7 @@ t_camera *camera_init(t_fdf *fdf)
 	// camera->beta = 0;
 	// camera->gamma = 0;
 	// camera->z_divisor = 1;
-    camera->zoom = 30;
+    camera->zoom = 20;
     camera->x_offset = 0;
     camera->y_offset = 0;
 	return (camera);;

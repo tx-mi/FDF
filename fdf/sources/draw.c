@@ -7,7 +7,7 @@ void	my_mlx_pixel_put(t_fdf *fdf, int x, int y, int color)
 
 	if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT)
 	{
-		offset = (y * fdf->size_line+ x * (fdf->bits_per_pixel / 8));
+		offset = (y * fdf->size_line) + (x * fdf->bits_per_pixel / 8);
 		c = fdf->data_addr + offset;
 		*(unsigned int*)c = color;
 	}

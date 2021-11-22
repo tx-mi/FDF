@@ -9,8 +9,8 @@
 
 #include "error_message.h"
 
-# define HEIGHT			800
 # define WIDTH			800
+# define HEIGHT			800
 // # define MENU_WIDTH		250
 
 
@@ -100,6 +100,8 @@ void bresenham(t_point start, t_point end, t_fdf *fdf);
 void draw(t_fdf *fdf, t_map *map);
 
 // Design
+void isometric(int *x, int *y, int z);
+
 t_point design(t_point point, t_fdf *fdf);
 
 // Utils
