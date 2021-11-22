@@ -16,6 +16,8 @@ static int	get_width(char *line)
 	int		i;
 
 	array = ft_split(line, ' ');
+	if (!array)
+		terminate(ERR_MAP);
 	i = 0;
 	while (array[i])
 		i++;
@@ -23,19 +25,19 @@ static int	get_width(char *line)
 	return (i);
 }
 
-static void	get_height(t_fdf *fdf, char *filename)
+static void	get_height(t_map *map, char *filename)
 {
 	char	*line;
 	int		fd;
 
 	fd = open(filename, O_RDONLY);
 	get_next_line(fd, &line);
-	fdf->width = get_width(line);
-	fdf->height = 1;
+	map->width = get_width(line);
+	map->height = 1;
 
 	while (get_next_line(fd, &line) > 0)
 	{
-		fdf->height++;
+		map->height++;
 		free(line);
 		line = NULL;
 	}
@@ -48,6 +50,8 @@ static void	fill_row_matrix(int *row, char *line)
 	int i;
 
 	nums = ft_split(line, ' ');
+	if (!nums)
+		terminate(ERR_MAP);
 	i = 0;
 	while (nums[i])
 	{
@@ -58,24 +62,28 @@ static void	fill_row_matrix(int *row, char *line)
 	free(nums);
 }
 
-void	read_file(t_fdf *fdf, char *filename)
+void read_map(char *filename, t_map *map)
 {
 	char	*line;
 	int		fd;
 	int		i;
 
-	get_height(fdf, filename);
-	fdf->z_matrix = (int **)malloc(sizeof(int*) * (fdf->height + 1));
+	get_height(map, filename);
+	map->z_matrix = (int **)malloc(sizeof(int*) * (map->height + 1));
 	fd = open(filename, O_RDONLY);
+	if (fd <= 0)
+		terminate(ERR_MAP);
 	i = 0;
 	while (get_next_line(fd, &line) > 0)
 	{
-		fdf->z_matrix[i] = (int *)malloc(sizeof(int) * (fdf->width + 1));
-		fill_row_matrix(fdf->z_matrix[i], line);
+		map->z_matrix[i] = (int *)malloc(sizeof(int) * (map->width + 1));
+		if (!(map->z_matrix[i]))
+			terminate(ERR_MAP);
+		fill_row_matrix(map->z_matrix[i], line);
 		free(line);
 		line = NULL;
 		i++;
 	}
 	free(line);
-	fdf->z_matrix[i] = NULL;
+	map->z_matrix[i] = NULL;
 }

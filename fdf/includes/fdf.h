@@ -82,11 +82,15 @@ typedef struct			s_fdf
 	// t_mouse				*mouse;
 }						t_fdf;
 
-void my_mlx_pixel_put();
+// Init
+t_map *map_init(void);
 
-void bresenham();
+t_fdf *fdf_init(t_map *map);
 
-void read_file();
+t_camera *camera_init(t_fdf *fdf);
+
+// Parse
+void read_map(char *filename, t_map *map);
 
 // Utils
 double precent(int start, int end, int current);
@@ -94,5 +98,13 @@ double precent(int start, int end, int current);
 void terminate(char *s);
 
 int sign(int point0, int point1);
+
+
+// ///////////////////
+// void my_mlx_pixel_put();
+// void bresenham();
+
+// void read_file();
+
 
 #endif
