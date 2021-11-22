@@ -11,8 +11,8 @@ t_map *map_init(void)
     map->height = 0;
     map->colors_arr = NULL;
     map->z_matrix = NULL;
-    // map->z_max = INT_MAX;
-    // map->z_min = INT_MIN;
+    map->z_max = 0;
+    map->z_min = 0;
     return (map);
 }
 

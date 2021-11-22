@@ -59,6 +59,7 @@ static void	fill_row_matrix(int *row, char *line)
 		free(nums[i]);
 		i++;	
 	}
+	row[i] = 0;
 	free(nums);
 }
 
@@ -80,6 +81,7 @@ void read_map(char *filename, t_map *map)
 		if (!(map->z_matrix[i]))
 			terminate(ERR_MAP);
 		fill_row_matrix(map->z_matrix[i], line);
+		find_minmax(map, map->z_matrix[i]);
 		free(line);
 		line = NULL;
 		i++;

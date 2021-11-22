@@ -28,7 +28,7 @@ void	bresenham(t_point start, t_point end, t_fdf *fdf)
 	error[0] = delta.x + delta.y;
 	while (current.x != end.x || current.y != end.y)
 	{
-		my_mlx_pixel_put(fdf, current.x, current.y, current.color);
+		my_mlx_pixel_put(fdf, current.x, current.y, get_color(current, start, end));
 		error[1] = 2 * error[0];
 		if (error[1] >= delta.y)
 		{

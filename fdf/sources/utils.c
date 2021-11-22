@@ -1,12 +1,12 @@
 #include "fdf.h"
 
-double precent(int start, int end, int current)
+double percent(int start, int end, int current)
 {
     double  placement;
     double  distance;
 
     placement = current - start;
-    distance = end - current;
+    distance = end - start;
     if (distance == 0)
         return (1.0);
     else
@@ -37,10 +37,7 @@ t_point new_point(t_map *map, int x, int y)
     point.x = x;
     point.y = y;
     point.z = map->z_matrix[y][x];
-    if (point.z)
-        point.color = 0xff0000;
-    else
-        point.color = 0xffffff;
+    point.color = default_color(point.z, map);
     return (point);
 }
 

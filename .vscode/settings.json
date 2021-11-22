@@ -8,6 +8,8 @@
         "fdf.h": "c",
         "stdio.h": "c",
         "mlx.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "colors.h": "c",
+        "error_message.h": "c"
     }
 }

@@ -8,6 +8,7 @@
 # include <stdio.h>
 
 #include "error_message.h"
+#include "colors.h"
 
 # define WIDTH			800
 # define HEIGHT			800
@@ -46,8 +47,8 @@ typedef struct			s_map
 	int					height;
 	int					**z_matrix;
 	int					*colors_arr;
-	// int					z_min;
-	// int					z_max;
+	int					z_min;
+	int					z_max;
 	// int					z_range;
 }						t_map;
 
@@ -96,8 +97,13 @@ void isometric(int *x, int *y, int z);
 
 t_point design(t_point point, t_fdf *fdf);
 
+// Color
+int default_color(int z, t_map *map);
+
+int get_color(t_point current, t_point start, t_point end);
+
 // Utils
-double precent(int start, int end, int current);
+double percent(int start, int end, int current);
 
 void terminate(char *s);
 
@@ -106,5 +112,7 @@ int calc_sign(int point0, int point1);
 t_point new_point(t_map *map, int x, int y);
 
 int min(int first, int second);
+
+void find_minmax(t_map *map, int *arr);
 
 #endif
