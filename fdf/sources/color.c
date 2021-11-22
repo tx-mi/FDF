@@ -17,8 +17,10 @@ int default_color(int z, t_map *map)
 		return (COLOR_SAFFRON);
 }
 
-int get_color(t_point current, t_point start, t_point end)
+int get_color(t_point current, t_point start, t_point end, t_fdf *fdf)
 {
+	// if (fdf->camera->effects == SMOOTH && fdf->smooth >= MAX_SMOOTH / 2)
+	// 	return (BACKGROUND);
     if (end.z)
         return (end.color);
     else if (start.z)

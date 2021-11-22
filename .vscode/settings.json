@@ -10,6 +10,7 @@
         "mlx.h": "c",
         "unistd.h": "c",
         "colors.h": "c",
-        "error_message.h": "c"
+        "error_message.h": "c",
+        "__node_handle": "c"
     }
 }

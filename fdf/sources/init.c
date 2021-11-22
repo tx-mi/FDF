@@ -29,6 +29,7 @@ t_fdf *fdf_init(t_map *map)
     fdf->data_addr = mlx_get_data_addr(fdf->img, &(fdf->bits_per_pixel),
                                        &(fdf->size_line), &(fdf->endian));
     fdf->map = map;
+	fdf->smooth = MAX_SMOOTH;
     return (fdf);
 }
 
@@ -39,10 +40,11 @@ t_camera *camera_init(t_fdf *fdf)
     camera = (t_camera *)ft_calloc(1, sizeof(t_camera));
     if (!camera)
 		terminate(ERR_CAMERA_INIT);
-	// camera->alpha = 0;
-	// camera->beta = 0;
-	// camera->gamma = 0;
-	camera->z_divisor = 4;
+	camera->effects = ISO;
+	camera->alpha = 0;
+	camera->beta = 0;
+	camera->gamma = 0;
+	camera->z_divisor = 2.0;
     camera->zoom = min(WIDTH / fdf->map->width / 2, HEIGHT / fdf->map->height / 2);
     camera->x_offset = 0;
     camera->y_offset = 0;

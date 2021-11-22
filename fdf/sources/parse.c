@@ -31,6 +31,8 @@ static void	get_height(t_map *map, char *filename)
 	int		fd;
 
 	fd = open(filename, O_RDONLY);
+	if (fd <= 0)
+		terminate(ERR_MAP);
 	get_next_line(fd, &line);
 	map->width = get_width(line);
 	map->height = 1;
@@ -69,11 +71,11 @@ void read_map(char *filename, t_map *map)
 	int		fd;
 	int		i;
 
-	get_height(map, filename);
-	map->z_matrix = (int **)malloc(sizeof(int*) * (map->height + 1));
 	fd = open(filename, O_RDONLY);
 	if (fd <= 0)
 		terminate(ERR_MAP);
+	get_height(map, filename);
+	map->z_matrix = (int **)malloc(sizeof(int*) * (map->height + 1));
 	i = 0;
 	while (get_next_line(fd, &line) > 0)
 	{

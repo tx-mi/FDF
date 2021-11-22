@@ -9,5 +9,10 @@ int key_press(int key, t_fdf *fdf)
 		move(key, fdf);
 	else if (key == MAIN_PAD_PLUS || key == MAIN_PAD_MINUS)
 		zoom(key, fdf);
+	else if (key == MAIN_PAD_A || key == MAIN_PAD_S ||
+			key == MAIN_PAD_D || key == MAIN_PAD_W)
+		rotate(key, fdf);
+	else if (key == MAIN_PAD_I || key == MAIN_PAD_P)
+		change_view(key, fdf);
 	return (0);
 }

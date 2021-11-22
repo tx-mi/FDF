@@ -13,14 +13,18 @@
 
 # define WIDTH			1920
 # define HEIGHT			1080
-// # define MENU_WIDTH		250
+# define MENU_WIDTH		250
 
+# define MAX_SMOOTH		50
 
 typedef enum
 {
-	Iso,
-	Parallel
-}	t_perspective;
+	ISO,
+	PARALLEL,
+	ROTATIONS,
+	SMOOTH,
+	CHANGE_COLORS,
+}	t_effects;
 
 typedef struct			s_point
 {
@@ -32,11 +36,11 @@ typedef struct			s_point
 
 typedef struct			s_camera
 {
-	t_perspective		perspective;
+	t_effects			effects;	
 	int					zoom;
-	// double				alpha;
-	// double				beta;
-	// double				gamma;
+	double				alpha;
+	double				beta;
+	double				gamma;
 	float				z_divisor;
 	int					x_offset;
 	int					y_offset;
@@ -50,20 +54,11 @@ typedef struct			s_map
 	int					*colors_arr;
 	int					z_min;
 	int					z_max;
-	// int					z_range;
 }						t_map;
-
-// typedef struct			s_mouse
-// {
-// 	char				is_pressed;
-// 	int					x;
-// 	int					y;
-// 	int					previous_x;
-// 	int					previous_y;
-// }						t_mouse;
 
 typedef struct			s_fdf
 {
+	int					smooth;
 	void				*mlx;
 	void				*win;
 	void				*img;
@@ -73,7 +68,6 @@ typedef struct			s_fdf
 	int					endian;
 	t_camera			*camera;
 	t_map				*map;
-	// t_mouse				*mouse;
 }						t_fdf;
 
 // Init
@@ -103,7 +97,7 @@ t_point design(t_point point, t_fdf *fdf);
 // Color
 int default_color(int z, t_map *map);
 
-int get_color(t_point current, t_point start, t_point end);
+int get_color(t_point current, t_point start, t_point end, t_fdf *fdf);
 
 // Control
 void	setup_control(t_fdf *fdf);
@@ -118,6 +112,13 @@ int	move(int keycode, t_fdf *fdf);
 
 int	zoom(int keycode, t_fdf *fdf);
 
+int	rotate(int keycode, t_fdf *fdf);
+
+int	change_view(int keycode, t_fdf *fdf);
+
+// Effects
+void	effects(int *x, int *y, int *z, t_fdf *fdf);
+
 // Utils
 double percent(int start, int end, int current);
 
@@ -130,5 +131,7 @@ t_point new_point(t_map *map, int x, int y);
 int min(int first, int second);
 
 void find_minmax(t_map *map, int *arr);
+
+void	iso(int *x, int *y, int z);
 
 #endif
