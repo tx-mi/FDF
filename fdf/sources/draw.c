@@ -43,11 +43,26 @@ void	bresenham(t_point start, t_point end, t_fdf *fdf)
 	}
 }
 
+void	draw_backgound(t_fdf *fdf)
+{
+	int	i;
+	int	*image;
+
+	i = 0;
+	image = (int *)fdf->data_addr;
+	while (i < HEIGHT * WIDTH)
+	{
+		image[i] = BACKGROUND;
+		i++;
+	}
+}
+
 void	draw(t_fdf *fdf, t_map *map)
 {
 	int x;
 	int y;
 
+	draw_backgound(fdf);
 	y = 0;
 	while (y < map->height)
 	{

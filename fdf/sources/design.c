@@ -12,7 +12,7 @@ t_point design(t_point point, t_fdf *fdf)
     point.y *= fdf->camera->zoom;
     point.z *= fdf->camera->zoom / fdf->camera->z_divisor;
     isometric(&(point.x), &(point.y), point.z);
-    point.x += (WIDTH / 2);
-    point.y += (HEIGHT - fdf->map->height * fdf->camera->zoom) / 2;
+    point.x += (WIDTH / 2) + fdf->camera->x_offset;
+    point.y += (HEIGHT - fdf->map->height * fdf->camera->zoom) / 2 + fdf->camera->y_offset;
     return (point);
 }

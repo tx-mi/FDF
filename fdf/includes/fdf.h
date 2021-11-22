@@ -7,11 +7,12 @@
 # include <errno.h>
 # include <stdio.h>
 
-#include "error_message.h"
-#include "colors.h"
+# include "error_message.h"
+# include "colors.h"
+# include "keys.h"
 
-# define WIDTH			800
-# define HEIGHT			800
+# define WIDTH			1920
+# define HEIGHT			1080
 // # define MENU_WIDTH		250
 
 
@@ -90,6 +91,8 @@ void my_mlx_pixel_put(t_fdf *fdf, int x, int y, int color);
 
 void bresenham(t_point start, t_point end, t_fdf *fdf);
 
+void	draw_backgound(t_fdf *fdf);
+
 void draw(t_fdf *fdf, t_map *map);
 
 // Design
@@ -101,6 +104,19 @@ t_point design(t_point point, t_fdf *fdf);
 int default_color(int z, t_map *map);
 
 int get_color(t_point current, t_point start, t_point end);
+
+// Control
+void	setup_control(t_fdf *fdf);
+
+// Keys manage
+int key_press(int keycode, t_fdf *fdf);
+
+// Management
+int	close_fdf(int keycode, t_fdf *fdf);
+
+int	move(int keycode, t_fdf *fdf);
+
+int	zoom(int keycode, t_fdf *fdf);
 
 // Utils
 double percent(int start, int end, int current);

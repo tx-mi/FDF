@@ -42,7 +42,7 @@ t_camera *camera_init(t_fdf *fdf)
 	// camera->alpha = 0;
 	// camera->beta = 0;
 	// camera->gamma = 0;
-	camera->z_divisor = 3;
+	camera->z_divisor = 4;
     camera->zoom = min(WIDTH / fdf->map->width / 2, HEIGHT / fdf->map->height / 2);
     camera->x_offset = 0;
     camera->y_offset = 0;
