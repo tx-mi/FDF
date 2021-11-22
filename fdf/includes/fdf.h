@@ -9,16 +9,16 @@
 
 #include "error_message.h"
 
-# define HEIGHT			1080
-# define WIDTH			1920
-# define MENU_WIDTH		250
+# define HEIGHT			800
+# define WIDTH			800
+// # define MENU_WIDTH		250
 
 
 typedef enum
 {
 	Iso,
 	Parallel
-}	t_projection;
+}	t_perspective;
 
 // typedef struct			s_coord_val
 // {
@@ -27,17 +27,17 @@ typedef enum
 // 	struct s_coord_val	*next;
 // }						t_coord_val;
 
-// typedef struct			s_point
-// {
-// 	int					x;
-// 	int					y;
-// 	int					z;
-// 	int					color;
-// }						t_point;
+typedef struct			s_point
+{
+	int					x;
+	int					y;
+	int					z;
+	int					color;
+}						t_point;
 
 typedef struct			s_camera
 {
-	t_projection		projection;
+	t_perspective		perspective;
 	int					zoom;
 	// double				alpha;
 	// double				beta;
@@ -92,19 +92,24 @@ t_camera *camera_init(t_fdf *fdf);
 // Parse
 void read_map(char *filename, t_map *map);
 
+// Draw
+void my_mlx_pixel_put(t_fdf *fdf, int x, int y, int color);
+
+void bresenham(t_point start, t_point end, t_fdf *fdf);
+
+void draw(t_fdf *fdf, t_map *map);
+
+// Design
+t_point design(t_point point, t_fdf *fdf);
+
 // Utils
 double precent(int start, int end, int current);
 
 void terminate(char *s);
 
-int sign(int point0, int point1);
+int calc_sign(int point0, int point1);
 
-
-// ///////////////////
-// void my_mlx_pixel_put();
-// void bresenham();
-
-// void read_file();
+t_point new_point(t_map *map, int x, int y);
 
 
 #endif

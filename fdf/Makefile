@@ -20,7 +20,7 @@ LIBFT_HEADERS = $(LIBFT_DIRECTORY
 
 # Sources
 SOURCES_DIRECTORY = ./sources/
-SOURCES_LIST = main.c init.c parse.c utils.c
+SOURCES_LIST = main.c init.c parse.c draw.c design.c utils.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 # OBJS files

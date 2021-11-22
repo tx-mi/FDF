@@ -11,11 +11,10 @@ int	main(int argc, char **argv)
 		fdf = fdf_init(map);
 		read_map(argv[1], map);
 		fdf->camera = camera_init(fdf);
-		// draw()
+		draw(fdf, map);
 		// setup_controls()
-		// mlx_loop(fdf->mlx);
+		mlx_loop(fdf->mlx);
 	}
-	// terminate(ERR_USAGE);
-	// return (1);
+	terminate(ERR_USAGE);
 	return (0);
 }
