@@ -14,5 +14,7 @@ int key_press(int key, t_fdf *fdf)
 		rotate(key, fdf);
 	else if (key == MAIN_PAD_I || key == MAIN_PAD_P)
 		change_view(key, fdf);
+	else if (key == MAIN_PAD_F)
+		flicker(fdf);
 	return (0);
 }

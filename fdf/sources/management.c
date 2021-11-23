@@ -34,9 +34,9 @@ int	zoom(int keycode, t_fdf *fdf)
 int	rotate(int keycode, t_fdf *fdf)
 {
 	if (keycode == MAIN_PAD_A)
-		fdf->camera->gamma += 0.01;
+		fdf->camera->gamma += 0.1;
 	else if (keycode == MAIN_PAD_D)
-		fdf->camera->gamma -= 0.01;
+		fdf->camera->gamma -= 0.1;
 	else if (keycode == MAIN_PAD_S)
 		fdf->camera->alpha += 0.1;
 	else

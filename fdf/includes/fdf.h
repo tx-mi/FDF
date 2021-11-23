@@ -13,17 +13,11 @@
 
 # define WIDTH			1920
 # define HEIGHT			1080
-# define MENU_WIDTH		250
-
-# define MAX_SMOOTH		50
 
 typedef enum
 {
 	ISO,
 	PARALLEL,
-	ROTATIONS,
-	SMOOTH,
-	CHANGE_COLORS,
 }	t_effects;
 
 typedef struct			s_point
@@ -58,7 +52,6 @@ typedef struct			s_map
 
 typedef struct			s_fdf
 {
-	int					smooth;
 	void				*mlx;
 	void				*win;
 	void				*img;
@@ -66,6 +59,7 @@ typedef struct			s_fdf
 	int					bits_per_pixel;
 	int					size_line;
 	int					endian;
+	int					flicker;
 	t_camera			*camera;
 	t_map				*map;
 }						t_fdf;
@@ -97,7 +91,7 @@ t_point design(t_point point, t_fdf *fdf);
 // Color
 int default_color(int z, t_map *map);
 
-int get_color(t_point current, t_point start, t_point end, t_fdf *fdf);
+int get_color(t_point current, t_point start, t_point end, t_point delta);
 
 // Control
 void	setup_control(t_fdf *fdf);
@@ -118,6 +112,9 @@ int	change_view(int keycode, t_fdf *fdf);
 
 // Effects
 void	effects(int *x, int *y, int *z, t_fdf *fdf);
+
+int		flicker(t_fdf *fdf);
+void	flick(t_fdf *fdf);
 
 // Utils
 double percent(int start, int end, int current);

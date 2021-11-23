@@ -29,7 +29,7 @@ t_fdf *fdf_init(t_map *map)
     fdf->data_addr = mlx_get_data_addr(fdf->img, &(fdf->bits_per_pixel),
                                        &(fdf->size_line), &(fdf->endian));
     fdf->map = map;
-	fdf->smooth = MAX_SMOOTH;
+	fdf->flicker = 0;
     return (fdf);
 }
 

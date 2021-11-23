@@ -28,7 +28,7 @@ void	bresenham(t_point start, t_point end, t_fdf *fdf)
 	error[0] = delta.x + delta.y;
 	while (current.x != end.x || current.y != end.y)
 	{
-		my_mlx_pixel_put(fdf, current.x, current.y, get_color(current, start, end, fdf));
+		my_mlx_pixel_put(fdf, current.x, current.y, get_color(current, start, end, delta));
 		error[1] = 2 * error[0];
 		if (error[1] >= delta.y)
 		{
@@ -62,16 +62,7 @@ void	draw(t_fdf *fdf, t_map *map)
 	int x;
 	int y;
 
-	// if (fdf->camera->effects == SMOOTH && fdf->smooth == MAX_SMOOTH)
-	// {
-	// 	draw_backgound(fdf);
-	// 	fdf->smooth = 0;
-	// }
-	// else if (fdf->camera->effects == SMOOTH)
-	// 	fdf->smooth++;
-	// else
-	// 	draw_backgound(fdf);
-	draw_backgound(fdf);
+	flick(fdf);
 	y = 0;
 	while (y < map->height)
 	{
