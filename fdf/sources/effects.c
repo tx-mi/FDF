@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   effects.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mwittenb <mwittenb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 22:35:58 by mwittenb          #+#    #+#             */
+/*   Updated: 2021/11/25 23:12:42 by mwittenb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	effects(int *x, int *y, int *z, t_fdf *fdf)
@@ -43,7 +55,7 @@ int	z_scale(int keycode, t_fdf *fdf)
 	return (0);
 }
 
-int	change_colors(int keycode, t_fdf* fdf)
+int	change_colors(int keycode, t_fdf *fdf)
 {
 	int	choice;
 
@@ -61,4 +73,3 @@ int	change_colors(int keycode, t_fdf* fdf)
 	draw(fdf, fdf->map);
 	return (0);
 }
-

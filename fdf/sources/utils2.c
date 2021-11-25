@@ -1,24 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mwittenb <mwittenb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 23:10:06 by mwittenb          #+#    #+#             */
+/*   Updated: 2021/11/25 23:11:58 by mwittenb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-void find_minmax(t_map *map, int *arr)
+void	find_minmax(t_map *map, int *arr)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < map->width)
-    {
-        if (arr[i] > map->z_max)
-            map->z_max = arr[i];
-        if (arr[i] < map->z_min)
-            map->z_min = arr[i];
-        i++;
-    }
+	i = 0;
+	while (i < map->width)
+	{
+		if (arr[i] > map->z_max)
+			map->z_max = arr[i];
+		if (arr[i] < map->z_min)
+			map->z_min = arr[i];
+		i++;
+	}
 }
 
 void	iso(int *x, int *y, int z)
 {
-	int previous_x;
-	int previous_y;
+	int	previous_x;
+	int	previous_y;
 
 	previous_x = *x;
 	previous_y = *y;

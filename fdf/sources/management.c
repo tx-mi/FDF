@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   management.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mwittenb <mwittenb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 23:05:59 by mwittenb          #+#    #+#             */
+/*   Updated: 2021/11/25 23:12:23 by mwittenb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-int close_fdf(int keycode, t_fdf *fdf)
+int	close_fdf(int keycode, t_fdf *fdf)
 {
 	mlx_destroy_image(fdf->mlx, fdf->img);
 	mlx_destroy_window(fdf->mlx, fdf->win);
@@ -23,7 +35,7 @@ int	move(int keycode, t_fdf *fdf)
 
 int	zoom(int keycode, t_fdf *fdf)
 {
-	if (keycode == MAIN_PAD_PLUS) 
+	if (keycode == MAIN_PAD_PLUS)
 		fdf->camera->zoom += 2;
 	else
 		fdf->camera->zoom -= 2;

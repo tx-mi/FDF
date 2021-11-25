@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mwittenb <mwittenb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 23:06:28 by mwittenb          #+#    #+#             */
+/*   Updated: 2021/11/25 23:12:16 by mwittenb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 static void	free_splitarray(char **array)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (array[i])
@@ -36,7 +48,6 @@ static void	get_height(t_map *map, char *filename)
 	get_next_line(fd, &line);
 	map->width = get_width(line);
 	map->height = 1;
-
 	while (get_next_line(fd, &line) > 0)
 	{
 		map->height++;
@@ -48,8 +59,8 @@ static void	get_height(t_map *map, char *filename)
 
 static void	fill_row_matrix(int *row, char *line)
 {
-	char **nums;
-	int i;
+	char	**nums;
+	int		i;
 
 	nums = ft_split(line, ' ');
 	if (!nums)
@@ -59,13 +70,13 @@ static void	fill_row_matrix(int *row, char *line)
 	{
 		row[i] = ft_atoi(nums[i]);
 		free(nums[i]);
-		i++;	
+		i++;
 	}
 	row[i] = 0;
 	free(nums);
 }
 
-void read_map(char *filename, t_map *map)
+void	read_map(char *filename, t_map *map)
 {
 	char	*line;
 	int		fd;
@@ -75,7 +86,7 @@ void read_map(char *filename, t_map *map)
 	if (fd <= 0)
 		terminate(ERR_MAP);
 	get_height(map, filename);
-	map->z_matrix = (int **)malloc(sizeof(int*) * (map->height + 1));
+	map->z_matrix = (int **)malloc(sizeof(int *) * (map->height + 1));
 	i = 0;
 	while (get_next_line(fd, &line) > 0)
 	{

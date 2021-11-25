@@ -1,6 +1,18 @@
-#ifndef COLOR_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   colors.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mwittenb <mwittenb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 22:05:52 by mwittenb          #+#    #+#             */
+/*   Updated: 2021/11/25 22:06:44 by mwittenb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# define COLOR_H
+#ifndef COLORS_H
+
+# define COLORS_H
 
 # define TEXT_COLOR			0xEAEAEA
 # define BACKGROUND			0x222222
@@ -26,6 +38,5 @@
 # define COLOR_LIGTH_YELLOW	0xffe700
 # define COLOR_GREEN		0x74ee15
 # define COLOR_LIGTH_BLUE	0x4deeea
-
 
 #endif
