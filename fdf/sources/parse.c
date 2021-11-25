@@ -90,4 +90,5 @@ void read_map(char *filename, t_map *map)
 	}
 	free(line);
 	map->z_matrix[i] = NULL;
+	init_colors(1, map);
 }

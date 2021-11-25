@@ -33,7 +33,7 @@ t_point design(t_point point, t_fdf *fdf)
 {
     point.x *= fdf->camera->zoom;
     point.y *= fdf->camera->zoom;
-    point.z *= fdf->camera->z_zoom;
+    point.z *= fdf->camera->zoom / fdf->camera->z_divisor;
 	point.x -= (fdf->map->width * fdf->camera->zoom) / 2;
 	point.y -= (fdf->map->height * fdf->camera->zoom) / 2;
 	rotate_x(&point.y, &point.z, fdf->camera->alpha);

@@ -17,6 +17,8 @@ int key_press(int key, t_fdf *fdf)
 		change_view(key, fdf);
 	else if (key == MAIN_PAD_Z || key == MAIN_PAD_X)
 		z_scale(key, fdf);
+	else if (key == MAIN_PAD_M)
+		change_colors(key, fdf);
 	else if (key == MAIN_PAD_F)
 		flicker(fdf);
 	return (0);

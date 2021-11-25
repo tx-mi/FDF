@@ -10,15 +10,15 @@ int	default_color(int z, t_map *map)
 
 	percentage = percent(map->z_min, map->z_max, z);
 	if (percentage < 0.2)
-		return (COLOR_DISCO);
+		return (map->colors_arr[0]);
 	else if (percentage < 0.4)
-		return (COLOR_BRICK_RED);
+		return (map->colors_arr[1]);
 	else if (percentage < 0.6)
-		return (COLOR_FLAMINGO);
+		return (map->colors_arr[2]);
 	else if (percentage < 0.8)
-		return (COLOR_JAFFA);
+		return (map->colors_arr[3]);
 	else
-		return (COLOR_SAFFRON);
+		return (map->colors_arr[4]);
 }
 
 /*

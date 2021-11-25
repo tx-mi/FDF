@@ -24,9 +24,9 @@ int	move(int keycode, t_fdf *fdf)
 int	zoom(int keycode, t_fdf *fdf)
 {
 	if (keycode == MAIN_PAD_PLUS) 
-		fdf->camera->zoom += 3;
+		fdf->camera->zoom += 2;
 	else
-		fdf->camera->zoom -= 3;
+		fdf->camera->zoom -= 2;
 	draw(fdf, fdf->map);
 	return (0);
 }

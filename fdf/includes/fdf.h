@@ -35,7 +35,7 @@ typedef struct			s_camera
 	double				alpha;
 	double				beta;
 	double				gamma;
-	int					z_zoom;
+	float				z_divisor;
 	int					x_offset;
 	int					y_offset;
 }						t_camera;
@@ -65,50 +65,50 @@ typedef struct			s_fdf
 }						t_fdf;
 
 // Init
-t_map *map_init(void);
+t_map	*map_init(void);
 
-t_fdf *fdf_init(t_map *map);
+t_fdf	*fdf_init(t_map *map);
 
 t_camera *camera_init(t_fdf *fdf);
 
 // Parse
-void read_map(char *filename, t_map *map);
+void	read_map(char *filename, t_map *map);
 
 // Draw
-void my_mlx_pixel_put(t_fdf *fdf, int x, int y, int color);
+void	my_mlx_pixel_put(t_fdf *fdf, int x, int y, int color);
 
-void bresenham(t_point start, t_point end, t_fdf *fdf);
+void	bresenham(t_point start, t_point end, t_fdf *fdf);
 
 void	draw_backgound(t_fdf *fdf);
 
-void draw(t_fdf *fdf, t_map *map);
+void	draw(t_fdf *fdf, t_map *map);
 
 // Design
-void isometric(int *x, int *y, int z);
+void	isometric(int *x, int *y, int z);
 
 t_point design(t_point point, t_fdf *fdf);
 
 // Color
-int default_color(int z, t_map *map);
+int		default_color(int z, t_map *map);
 
-int get_color(t_point current, t_point start, t_point end, t_point delta);
+int		get_color(t_point current, t_point start, t_point end, t_point delta);
 
 // Control
 void	setup_control(t_fdf *fdf);
 
 // Keys manage
-int key_press(int keycode, t_fdf *fdf);
+int		key_press(int keycode, t_fdf *fdf);
 
 // Management
-int	close_fdf(int keycode, t_fdf *fdf);
+int		close_fdf(int keycode, t_fdf *fdf);
 
-int	move(int keycode, t_fdf *fdf);
+int		move(int keycode, t_fdf *fdf);
 
-int	zoom(int keycode, t_fdf *fdf);
+int		zoom(int keycode, t_fdf *fdf);
 
-int	rotate(int keycode, t_fdf *fdf);
+int		rotate(int keycode, t_fdf *fdf);
 
-int	change_view(int keycode, t_fdf *fdf);
+int		change_view(int keycode, t_fdf *fdf);
 
 // Effects
 void	effects(int *x, int *y, int *z, t_fdf *fdf);
@@ -118,19 +118,26 @@ void	flick(t_fdf *fdf);
 
 int		z_scale(int keycode, t_fdf *fdf);
 
+int	change_colors(int keycode, t_fdf* fdf);
+
 // Utils
-double percent(int start, int end, int current);
+double	percent(int start, int end, int current);
 
-void terminate(char *s);
+void	terminate(char *s);
 
-int calc_sign(int point0, int point1);
+int		calc_sign(int point0, int point1);
+
+int		min(int first, int second);
 
 t_point new_point(t_map *map, int x, int y);
 
-int min(int first, int second);
-
-void find_minmax(t_map *map, int *arr);
+// Utils2
+void	find_minmax(t_map *map, int *arr);
 
 void	iso(int *x, int *y, int z);
+
+void	init_colors(int choice, t_map *map);
+
+void	choose_colors(int choice, t_map *map);
 
 #endif
