@@ -10,10 +10,13 @@ int key_press(int key, t_fdf *fdf)
 	else if (key == MAIN_PAD_PLUS || key == MAIN_PAD_MINUS)
 		zoom(key, fdf);
 	else if (key == MAIN_PAD_A || key == MAIN_PAD_S ||
-			key == MAIN_PAD_D || key == MAIN_PAD_W)
+			key == MAIN_PAD_D || key == MAIN_PAD_W ||
+			key == MAIN_PAD_E || key == MAIN_PAD_Q)
 		rotate(key, fdf);
 	else if (key == MAIN_PAD_I || key == MAIN_PAD_P)
 		change_view(key, fdf);
+	else if (key == MAIN_PAD_Z || key == MAIN_PAD_X)
+		z_scale(key, fdf);
 	else if (key == MAIN_PAD_F)
 		flicker(fdf);
 	return (0);

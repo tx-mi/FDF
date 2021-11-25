@@ -13,6 +13,11 @@
 # define MAIN_PAD_P 35
 # define MAIN_PAD_M 46
 # define MAIN_PAD_F 3
+# define MAIN_PAD_Z 6
+# define MAIN_PAD_X 7
+# define MAIN_PAD_C 8
+# define MAIN_PAD_Q 12
+# define MAIN_PAD_E 14
 
 # define NUM_PAD_LEFT 123
 # define NUM_PAD_RIGHT 124

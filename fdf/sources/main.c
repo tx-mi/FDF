@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 		read_map(argv[1], map);
 		fdf->camera = camera_init(fdf);
 		draw(fdf, map);
-		// mlx_hook(fdf->win, 2, 0, check, fdf)
+		// mlx_hook(fdf->win, 2, 0, check, fdf);
 		setup_control(fdf);
 		mlx_loop(fdf->mlx);
 	}

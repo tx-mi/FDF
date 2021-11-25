@@ -16,7 +16,7 @@ int	flicker(t_fdf *fdf)
 	return (0);
 }
 
-void flick(t_fdf *fdf)
+void	flick(t_fdf *fdf)
 {
 	if (fdf->flicker == 0)
 		draw_backgound(fdf);
@@ -27,4 +27,14 @@ void flick(t_fdf *fdf)
 		draw_backgound(fdf);
 		fdf->flicker = 1;
 	}
+}
+
+int	z_scale(int keycode, t_fdf *fdf)
+{
+	if (keycode == MAIN_PAD_Z)
+		fdf->camera->z_zoom += 5;
+	else
+		fdf->camera->z_zoom -= 5;
+	draw(fdf, fdf->map);
+	return (0);
 }

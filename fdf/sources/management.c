@@ -39,8 +39,12 @@ int	rotate(int keycode, t_fdf *fdf)
 		fdf->camera->gamma -= 0.1;
 	else if (keycode == MAIN_PAD_S)
 		fdf->camera->alpha += 0.1;
-	else
+	else if (keycode == MAIN_PAD_W)
 		fdf->camera->alpha -= 0.1;
+	else if (keycode == MAIN_PAD_E)
+		fdf->camera->beta += 0.1;
+	else
+		fdf->camera->beta -= 0.1;
 	draw(fdf, fdf->map);
 	return (0);
 }

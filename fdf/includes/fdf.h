@@ -35,7 +35,7 @@ typedef struct			s_camera
 	double				alpha;
 	double				beta;
 	double				gamma;
-	float				z_divisor;
+	int					z_zoom;
 	int					x_offset;
 	int					y_offset;
 }						t_camera;
@@ -115,6 +115,8 @@ void	effects(int *x, int *y, int *z, t_fdf *fdf);
 
 int		flicker(t_fdf *fdf);
 void	flick(t_fdf *fdf);
+
+int		z_scale(int keycode, t_fdf *fdf);
 
 // Utils
 double percent(int start, int end, int current);
