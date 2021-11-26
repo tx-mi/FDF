@@ -5,7 +5,7 @@ INCLUDES = -I$(HEADERS_DIRECTORY) -I$(MINILIBX_HEADERS)
 
 # Header files
 HEADERS_DIRECTORY = ./includes/
-HEADERS_LIST = fdf.h
+HEADERS_LIST = fdf.h colors.h error_message.h keys.h
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 # MINILIBX
@@ -43,7 +43,7 @@ RESET = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(MINILIBX) $(OBJECTS_DIRECTORY) $(OBJECTS)
+$(NAME): $(LIBFT) $(MINILIBX) $(OBJECTS_DIRECTORY) $(OBJECTS) Makefile
 	@$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJECTS) -o $(NAME)
 	@echo "\n$(NAME): $(GREEN)object files were created$(RESET)"
 	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
