@@ -4,6 +4,7 @@ Fils De Fer - A graphic project in which 3D objects are drawn using isometry.
 ## Keys for controll
 - i: canonic
 - p: paralell
+- <arrows>: move
 - q, w, e, a, s, d - rotate
 - z: up Z
 - x: down Z
